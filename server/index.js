@@ -29,6 +29,8 @@ app.get("/", (req, res) => {
   res.send("Hello World!! I miss you!");
 });
 
+app.get("/api/hello", (req, res) => res.send("Hello!"));
+
 app.post("/api/users/register", (req, res) => {
   //store information for register from client
 
