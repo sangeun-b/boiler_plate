@@ -1,17 +1,38 @@
 import React, { useEffect } from "react";
 import axios from "axios";
-function Landing() {
+import { withRouter } from "react-router-dom";
+function Landing(props) {
   useEffect(() => {
     axios.get("/api/hello").then((response) => {
       console.log(response);
     });
   }, []);
 
+  const onClickHandler = () => {
+    axios.get(`/api/users/logout`).then((response) => {
+      if (response.data.success) {
+        props.history.push("/login");
+      } else {
+        alert("failed to sing out.");
+      }
+    });
+  };
+
   return (
-    <div>
-      <p>Landing page</p>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        width: "100%",
+        height: "100vh",
+      }}
+    >
+      <h2>Home</h2>
+
+      <button onClick={onClickHandler}>sign out</button>
     </div>
   );
 }
 
-export default Landing;
+export default withRouter(Landing);

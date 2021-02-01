@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
+// import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
@@ -21,7 +21,7 @@ ReactDOM.render(
     store={createStoreWithMiddleware(
       Reducer,
       window.__REDUX_DEVTOOLS_EXTENSION__ &&
-        window.__REDUC_DEVTOOLS_EXTENSION__()
+        window.__REDUX_DEVTOOLS_EXTENSION__()
     )}
   >
     <App />
